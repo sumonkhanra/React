@@ -1,24 +1,39 @@
-import react from 'react';
+import React, { useState } from 'react';
 import Multiselect from 'multiselect-react-dropdown';
-import { useState } from 'react';
 const Multi=()=>{
-  const [option]= useState(['value 1','value 2','value 3'])
-return(
-<>
-<h1>multiselect dropdown element  with checkboxes</h1>
-<Multiselect
   
-isObject={false}
+  const [options] = useState(['Value1', 'Value2', 'Value3' , 'Value4']);
+  const [selectedValues] = useState(['Value1', 'Value2']);
 
-  options={option}
 
-  showCheckbox
-  //disable
 
-/>
-
-</>
-)
+  return (
+    <>
+      <div className="container mt-4">
+        <h1 className="text-center" style={{color:'MediumSeaGreen'}}>Multiselect dropdown element  with checkboxes</h1>
+        <Multiselect
+          style={{
+            chips: {
+              background: 'green',
+            },
+            multiselectContainer: {
+              color: 'SlateBlue',
+            },
+            searchBox: {
+              border: 'none',
+              borderBottom: '1px solid blue',
+              borderRadius: '0px',
+            },
+          }}
+          // showCheckbox
+          isObject={false}
+          options={options}
+          selectedValues={selectedValues}
+      
+        />
+      </div>
+    </>
+  );
 
 }
 export default Multi;
